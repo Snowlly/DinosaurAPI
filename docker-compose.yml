@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  parc-sauvage:
+    build:
+      context: ./parcSauvage
+      dockerfile: ./ops/Dockerfile
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./parcSauvage:/app
+    working_dir: /app
+
+  parc-touristique:
+    build:
+      context: ./parcTouristique
+      dockerfile: ./ops/Dockerfile
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./parcTouristique:/app
+    working_dir: /app
