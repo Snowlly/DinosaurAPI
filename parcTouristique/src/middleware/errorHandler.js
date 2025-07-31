@@ -1,6 +1,9 @@
-// server error
+function errorHandler(err, req, res, next) {
+  console.error('Error:', err.stack || err.message);
 
-module.exports = (err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ error: 'Erreur serveur' });
-};
+  res.status(err.status || 500).json({
+    error: err.message || 'Erreur serveur',
+  });
+}
+
+module.exports = errorHandler;
