@@ -1,0 +1,24 @@
+name: CI - Parc Touristique
+
+on:
+  push:
+    paths:
+      - 'parcTouristique/**'
+      - '.github/workflows/api-parc-touristique.yml'
+    branches: ["main", "Workflow"]
+  pull_request:
+    paths:
+      - 'parcTouristique/**'
+    branches: ["main", "Workflow"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Docker image for Parc Touristique
+        run: |
+          docker compose up --build -d
