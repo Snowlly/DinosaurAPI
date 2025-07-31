@@ -1,13 +1,22 @@
-// app.js
 const express = require('express');
 const app = express();
+
 app.use(express.json());
 
-// routes
-app.get('/dinosaurs', (req, res) => {
-  res.json([{ id: 1, name: 'T‑Rex2' }]);
-});
+const errorHandler = require('./src/middleware/errorHandler');
 
+
+const dinosaurRoutes = require('./src/routes/dinosaur');
+const incidentRoutes = require('./src/routes/incident');
+const keeperRoutes = require('./src/routes/keeper');
+
+app.use('/dinosaurs', dinosaurRoutes);
+app.use('/incidents', incidentRoutes);
+app.use('/keepers', keeperRoutes);
+
+app.use(errorHandler);
 
 const port = process.env.PORT || 3002;
-app.listen(port, () => console.log(`Parc2 API listening on ${port}`));
+app.listen(port, () => {
+  console.log(`ParcTouristique API en écoute sur le port ${port}`);
+});
