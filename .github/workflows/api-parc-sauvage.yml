@@ -1,0 +1,24 @@
+name: CI - Parc Sauvage
+
+on:
+  push:
+    paths:
+      - 'parcSauvage/**'
+      - '.github/workflows/api-parc-sauvage.yml'
+    branches: ["main", "Workflow"]
+  pull_request:
+    paths:
+      - 'parcSauvage/**'
+    branches: ["main", "Workflow"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Docker image for Parc Sauvage
+        run: |
+          docker build . --file ../ops/Dockerfile --tag parc-sauvage:ci-$(date +%s)
