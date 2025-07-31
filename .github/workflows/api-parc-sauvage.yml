@@ -21,4 +21,4 @@ jobs:
 
       - name: Build Docker image for Parc Sauvage
         run: |
-          docker build . --file ../ops/Dockerfile --tag parc-sauvage:ci-$(date +%s)
+          docker compose up --build -d

@@ -21,4 +21,4 @@ jobs:
 
       - name: Build Docker image for Parc Touristique
         run: |
-          docker build . --file ../ops/Dockerfile --tag parc-touristique:ci-$(date +%s)
+          docker compose up --build -d
