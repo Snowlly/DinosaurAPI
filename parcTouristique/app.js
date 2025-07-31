@@ -1,10 +1,15 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://mongo:27017/parcTouristique';
+
+mongoose.connect(MONGO_URI)
+  .then(() => console.log(' Connected to MongoDB'))
+  .catch((err) => console.error(' MongoDB connection error:', err));
 app.use(express.json());
 
 const errorHandler = require('./src/middleware/errorHandler');
-
 
 const dinosaurRoutes = require('./src/routes/dinosaur');
 const incidentRoutes = require('./src/routes/incident');
@@ -14,9 +19,10 @@ app.use('/dinosaurs', dinosaurRoutes);
 app.use('/incidents', incidentRoutes);
 app.use('/keepers', keeperRoutes);
 
+
 app.use(errorHandler);
 
 const port = process.env.PORT || 3002;
 app.listen(port, () => {
-  console.log(`ParcTouristique API en écoute sur le port ${port}`);
+  console.log(` ParcTouristique API listening on port ${port}`);
 });
