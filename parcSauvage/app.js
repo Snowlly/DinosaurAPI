@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // Connexion à MongoDB
-mongoose.connect(process.env.MONGO_URL || 'mongodb://mongo:27017/parc_db', {
+mongoose.connect(process.env.MONGO_URL || 'mongodb://mongo:27017/parcSauvage', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -23,5 +23,5 @@ app.use('/api/keepers', keeperRoutes);
 app.use('/api/incidents', incidentRoutes);
 
 // Port
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Parc1 API listening on ${port}`));

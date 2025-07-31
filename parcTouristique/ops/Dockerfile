@@ -1,14 +1,13 @@
+
 FROM node:18
 
 WORKDIR /app
 
-# On revient d'un niveau pour accéder aux fichiers de l'app
-COPY ../package*.json ./
-
+COPY package*.json ./
 RUN npm install
 
-COPY ../ ./
+COPY . .
 
-EXPOSE 3000
+EXPOSE 3002
 
-CMD ["npm", "start"]
+CMD ["node", "app.js"]

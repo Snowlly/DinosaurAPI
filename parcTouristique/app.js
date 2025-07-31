@@ -15,14 +15,16 @@ const dinosaurRoutes = require('./src/routes/dinosaur');
 const incidentRoutes = require('./src/routes/incident');
 const keeperRoutes = require('./src/routes/keeper');
 
-app.use('/dinosaurs', dinosaurRoutes);
-app.use('/incidents', incidentRoutes);
-app.use('/keepers', keeperRoutes);
+app.use('/api/dinosaurs', dinosaurRoutes);
+app.use('/api/incidents', incidentRoutes);
+app.use('/api/keepers', keeperRoutes);
 
 
 app.use(errorHandler);
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3000;
+
+
 app.listen(port, () => {
   console.log(` ParcTouristique API listening on port ${port}`);
 });
