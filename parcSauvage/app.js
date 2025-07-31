@@ -1,6 +1,15 @@
 // app.js
 const express = require('express');
 const app = express();
+
+const dinosaurRoutes = require('./routes/dinosaur');
+const keeperRoutes = require('./routes/keeper');
+const incidentRoutes = require('./routes/incident');
+
+app.use('/api/dinosaurs', dinosaurRoutes);
+app.use('/api/keepers', keeperRoutes);
+app.use('/api/incidents', incidentRoutes);
+
 app.use(express.json());
 
 // routes
