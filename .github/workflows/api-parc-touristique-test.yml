@@ -2,9 +2,9 @@ name: CI - Test Parc Touristique
 
 on:
   push:
-    branches: [ "main", "Workflow" ]
+    branches: [ "main", "Workflow" , "Staging"]
   pull_request:
-    branches: [ "main", "Workflow" ]
+    branches: [ "main", "Workflow" , "Staging"]
 
 jobs:
   test-node:

@@ -2,11 +2,11 @@ name: CI - Docker Parc Sauvage
 
 on:
   push:
-    branches: ["main", "Workflow"]
+    branches: ["main", "Workflow", "Staging"]
   pull_request:
     paths:
       - 'parcSauvage/**'
-    branches: ["main", "Workflow"]
+    branches: ["main", "Workflow", "Staging"]
 
 jobs:
   build:
