@@ -2,7 +2,7 @@ services:
   - type: web
     name: parc-sauvage-api
     env: docker
-    dockerfilePath: parcSauvage/ops/Dockerfile
+    dockerfilePath: ./parcSauvage/ops/Dockerfile
     buildCommand: ""          # laissé vide, Docker le gère
     startCommand: ""          # idem
     envVars:
@@ -17,7 +17,7 @@ services:
   - type: web
     name: parc-touristique-api
     env: docker
-    dockerfilePath: parcTouristique/ops/Dockerfile
+    dockerfilePath: ./parcTouristique/ops/Dockerfile
     buildCommand: ""
     startCommand: ""
     envVars:
