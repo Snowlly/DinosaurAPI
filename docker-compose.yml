@@ -12,7 +12,7 @@ services:
   parc-sauvage:
     build:
       context: ./parcSauvage
-      dockerfile: ./ops/Dockerfile
+      dockerfile: parcSauvage/Dockerfile
     ports:
       - "3001:3000"
     volumes:
