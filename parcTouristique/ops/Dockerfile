@@ -3,10 +3,10 @@ FROM node:18
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY parcTouristique/package*.json ./
 RUN npm install
 
-COPY . .
+COPY parcTouristique ./
 
 EXPOSE 3002
 

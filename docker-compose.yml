@@ -26,7 +26,7 @@ services:
   parc-touristique:
     build:
       context: ./parcTouristique
-      dockerfile: ./ops/Dockerfile
+      dockerfile: parcTouristique/ops/Dockerfile
     ports:
       - "3002:3000"
     volumes:
