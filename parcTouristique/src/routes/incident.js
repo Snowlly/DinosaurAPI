@@ -39,8 +39,11 @@ router.get('/:id', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   try {
     const updated = await Incident.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
     if (!updated) return res.status(404).json({ error: 'Incident not found' });
-    res.json(updated);
+
+    const populated = await updated.populate('assignedKeepers');
+    res.json(populated);
   } catch (err) {
     next(err);
   }
