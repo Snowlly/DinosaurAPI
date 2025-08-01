@@ -4,17 +4,18 @@
 Ce projet est une API REST développée en Node.js + Express avec une base MongoDB, permettant la gestion d’un parc de dinosaures (modèles : Dinosaur, Keeper, Incident).
 
 **Membre de l'équipe :** 
-CLAIR Manon
-DORBANI Abdelmalek
-MARTIN Evan
 
-Sur le Campus de LYON.
+* CLAIR Manon
+* DORBANI Abdelmalek
+* MARTIN Evan
+
+Sur le Campus de **LYON**.
 
 Lien utiles : 
 
-Tâches effectuées et structurées dans un tableau de Kanban : https://github.com/users/Snowlly/projects/6
-Lien de la production : ...
-Lien du Staging : ...
+* Tâches effectuées et structurées dans un tableau de Kanban : https://github.com/users/Snowlly/projects/6
+* Lien de la production : ...
+* Lien du Staging : ...
 
 ---
 
@@ -222,10 +223,10 @@ volumes:
 * Installer les node_modules dans chaques parcs :
 Vérifier que vous êtes bien sur le dossier "parcSauvage" ou "parcTouristique"
 
-  ```bash
-  cd DinosaurAPI/parcSauvage
-  npm install
-  ```
+```bash
+cd DinosaurAPI/parcSauvage
+npm install
+```
   
 Faire pareil pour DinosaurAPI/parcTouristique
 
@@ -234,17 +235,17 @@ Faire pareil pour DinosaurAPI/parcTouristique
 
 Il faut se positionner à la racine de l'application, puis faire :
 
-  ```bash
-  docker-compose up --build
-  ```
+```bash
+docker-compose up --build
+```
 ----
 * Lancer le projet :
 
 Il faut se positionner sur un des parcs : DinosaurAPI/parcSauvage, puis faire :
 
-  ```bash
-  npm start
-  ```
+```bash
+npm start
+```
 Et faire de même pour le parcTouristique.
 
 ----
