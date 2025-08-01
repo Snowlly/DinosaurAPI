@@ -2,7 +2,7 @@ services:
   - type: web
     name: parc-sauvage-api
     env: docker
-    dockerfilePath: parcSauvage/ops/Dockerfile     # relatif au buildContext
+    dockerfilePath: parcSauvage/Dockerfile     # relatif au buildContext
     buildContext: parcSauvage
     buildCommand: ""          # laissé vide, Docker le gère
     startCommand: ""          # idem
