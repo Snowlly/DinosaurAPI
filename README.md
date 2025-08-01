@@ -161,7 +161,7 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3001 (pour le pacrSauvage) ou EXPOSE 3002 (pour le parcTouristique)
 CMD ["npm", "start"]
 ```
 
