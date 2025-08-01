@@ -15,6 +15,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image for Parc Touristique
-        working-directory: parcTouristique
+        working-directory: ../parcTouristique
         run: |
           docker compose up --build -d

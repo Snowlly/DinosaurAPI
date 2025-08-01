@@ -4,8 +4,6 @@ on:
   push:
     branches: ["main", "Workflow"]
   pull_request:
-    paths:
-      - 'parcSauvage/**'
     branches: ["main", "Workflow"]
 
 jobs:
@@ -17,5 +15,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build and run parc-sauvage service
-        working-directory: parcSauvage
         run: docker compose up --build
