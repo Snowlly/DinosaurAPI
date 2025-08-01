@@ -27,29 +27,43 @@ Lien du Staging : ...
 ##### Dinosaur
 
 **name**	String  Nom du dinosaure
+
 **specie**	String  Espèce
+
 **weight**	Number  Poids en kg
+
 **height**	Number	Taille en mètres
+
 **dangerLevel**	Number  Niveau de danger (1 à 10)
+
 **diet**	String	carnivore, herbivore, omnivore
 
 
 ##### Keeper
 
 **name**	String	"Nom du soigneur"
+
 **age**	Number	Âge
-**dateStart**	Date	"Date de début d’activité"
+
+**dateStart**	Date	"Date de début d’activité"`
+
 **available**	Boolean	Disponible ou non
+
 **sector**	String	"Zone assignée dans le parc"
 
 
 ##### Incident
 
 **title**	String	Titre de l’incident
+
 **severity**	String (enum)	"low, medium, high, critical"
+
 **isDone**	String (enum) (default)	yes ou no
+
 **description**	String	"Description de l’incident"
+
 **assignedKeepers**	Array of ObjectId	"Références vers les Keeper affectés"
+
 **dateCreation**	Date (default)	Date de création de l’incident
 
 ---
@@ -59,25 +73,41 @@ Lien du Staging : ...
 Toutes les routes sont disponibles sous le préfixe /api.
 
 **/api/dinosaurs**
-Méthode	URL	Description
+
 GET	/api/dinosaurs	Liste tous les dinos
+
 GET	/api/dinosaurs/:id	Détail d’un dinosaure
+
 POST	/api/dinosaurs	Crée un nouveau dinosaure
+
 PUT	/api/dinosaurs/:id	Modifie un dinosaure
+
 DELETE	/api/dinosaurs/:id	Supprime un dinosaure
+
+
 **/api/keepers**
-Méthode	URL	Description
-GET	/api/keepers	Liste tous les soigneurs
-GET	/api/keepers/:id	Détail d’un soigneur
-POST	/api/keepers	Crée un nouveau soigneur
-PUT	/api/keepers/:id	Modifie un soigneur
-DELETE	/api/keepers/:id	Supprime un soigneur
+
+GET	/api/keepers	Liste tous les keepers
+
+GET	/api/keepers/:id	Détail d’un keepers
+
+POST	/api/keepers	Crée un nouveau keepers
+
+PUT	/api/keepers/:id	Modifie un keepers
+
+DELETE	/api/keepers/:id	Supprime un keepers
+
+
 **/api/incidents**
-Méthode	URL	Description
+
 GET	/api/incidents	Liste tous les incidents
+
 GET	/api/incidents/:id	Détail d’un incident
+
 POST	/api/incidents	Crée un nouvel incident
+
 PUT	/api/incidents/:id	Modifie un incident
+
 DELETE	/api/incidents/:id	Supprime un incident
 
 Les routes GET et PUT d’incidents utilisent .populate('assignedKeepers') pour inclure les informations des soigneurs assignés.
