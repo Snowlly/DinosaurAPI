@@ -1,32 +1,32 @@
-services:
-  - type: web
-    name: parc-sauvage-api
-    env: docker
-    dockerfilePath: ./parcSauvage/ops/Dockerfile     # relatif au buildContext
-    buildContext: DinosaurAPI
-    buildCommand: ""          # laissé vide, Docker le gère
-    startCommand: ""          # idem
-    envVars:
-      - key: PORT
-        value: 3001
-      - key: MONGO_URL
-        value: mongodb://mongo:27017/parc_db
-    plan: free
-    region: oregon
-    autoDeploy: true
-
-  - type: web
-    name: parc-touristique-api
-    env: docker
-    dockerfilePath: ./parcTouristique/ops/Dockerfile     # relatif au buildContext
-    buildContext: DinosaurAPI
-    buildCommand: ""          # laissé vide, Docker le gère
-    startCommand: ""          # idem
-    envVars:
-      - key: PORT
-        value: 3002
-      - key: MONGO_URL
-        value: mongodb://mongo:27017/parc_db
-    plan: free
-    region: oregon
-    autoDeploy: true
+#services:
+#  - type: web
+#    name: parc-sauvage-api
+#    env: docker
+#    dockerfilePath: ./parcSauvage/ops/Dockerfile     # relatif au buildContext
+#    buildContext: DinosaurAPI
+#    buildCommand: ""          # laissé vide, Docker le gère
+#    startCommand: ""          # idem
+#    envVars:
+#      - key: PORT
+#        value: 3001
+#      - key: MONGO_URL
+#        value: mongodb://mongo:27017/parc_db
+#    plan: free
+#    region: oregon
+#    autoDeploy: true
+#
+#  - type: web
+#    name: parc-touristique-api
+#    env: docker
+#    dockerfilePath: ./parcTouristique/ops/Dockerfile     # relatif au buildContext
+#    buildContext: DinosaurAPI
+#    buildCommand: ""          # laissé vide, Docker le gère
+#    startCommand: ""          # idem
+#    envVars:
+#      - key: PORT
+#        value: 3002
+#      - key: MONGO_URL
+#        value: mongodb://mongo:27017/parc_db
+#    plan: free
+#    region: oregon
+#    autoDeploy: true
