@@ -202,13 +202,15 @@ Faire pareil pour DinosaurAPI/parcTouristique
 ----
 * Lancer les services :
 
+Il faut se positionner à la racine de l'application, puis faire :
+
   ```bash
   docker-compose up --build
   ```
 ----
 * Lancer le projet :
 
-Il faut se positionner sur un des parcs : DinosaurAPI/parcSauvage
+Il faut se positionner sur un des parcs : DinosaurAPI/parcSauvage, puis faire :
 
   ```bash
   npm start
@@ -223,10 +225,13 @@ Même principe que précédemment, il faut se positionner sur un des parcs, puis
 ```bash
 npm test
 ```
+Et faire de même pour l'autre Parc.
 
 ----
 
 * Arrêter les conteneurs :
+
+Se mettre à la racine de l'application, puis faire :
 
   ```bash
   docker-compose down
