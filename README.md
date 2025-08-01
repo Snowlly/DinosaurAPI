@@ -3,7 +3,8 @@
 
 Ce projet est une API REST développée en Node.js + Express avec une base MongoDB, permettant la gestion d’un parc de dinosaures (modèles : Dinosaur, Keeper, Incident).
 
-[![Node.js CI](https://github.com/Snowlly/DinosaurAPI/actions/workflows/api-parc-sauvage.yml/badge.svg)]
+[![Node.js CI](https://github.com/Snowlly/DinosaurAPI/actions/workflows/api-parc-sauvage.yml/badge.svg)] 
+[![Node.js CI](https://github.com/Snowlly/DinosaurAPI/actions/workflows/api-parc-touristique.yml/badge.svg)]
 
 **Membre de l'équipe :** 
 
