@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "express": "^5.1.0",
+    "jest": "^30.0.5",
     "mongoose": "^8.17.0"
   }
 }
