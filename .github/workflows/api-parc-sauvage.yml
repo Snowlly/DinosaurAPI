@@ -4,14 +4,18 @@ on:
   push:
     branches: [ "main", "Workflow" ]
   pull_request:
-    branches: [ "main", "Workflow" ]
+      paths:
+        - 'parcSauvage/**'
+      branches: [ "main", "Workflow" ]
 
 jobs:
   test-node:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
 
       - name: Build and run parc-sauvage service
         run: docker compose up --build
