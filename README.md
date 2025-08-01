@@ -188,11 +188,43 @@ volumes:
 
 #### Les commandes utiles
 
+----
+* Installer les node_modules dans chaques parcs :
+Vérifier que vous êtes bien sur le dossier "parcSauvage" ou "parcTouristique"
+
+  ```bash
+  cd DinosaurAPI/parcSauvage
+  npm install
+  ```
+  
+Faire pareil pour DinosaurAPI/parcTouristique
+
+----
 * Lancer les services :
 
   ```bash
   docker-compose up --build
   ```
+----
+* Lancer le projet :
+
+Il faut se positionner sur un des parcs : DinosaurAPI/parcSauvage
+
+  ```bash
+  npm start
+  ```
+Et faire de même pour le parcTouristique.
+
+----
+* Lancer les tests :
+
+Même principe que précédemment, il faut se positionner sur un des parcs, puis faire :
+
+```bash
+npm test
+```
+
+----
 
 * Arrêter les conteneurs :
 
