@@ -1,22 +1,21 @@
-name: CI - docker Parc Sauvage
+name: CI - Docker Parc Sauvage
 
 on:
   push:
-    branches: [ "main", "Workflow" ]
+    branches: ["main", "Workflow"]
   pull_request:
-      paths:
-        - 'parcSauvage/**'
-      branches: [ "main", "Workflow" ]
+    paths:
+      - 'parcSauvage/**'
+    branches: ["main", "Workflow"]
 
 jobs:
-  test-node:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-
-      - name: Build and run parc-sauvage service
-        run: docker compose up --build
-
+      - name: Build Docker image for Parc Sauvage
+        working-directory: parcSauvage
+        run: docker compose up --build -d
