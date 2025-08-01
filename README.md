@@ -1,8 +1,100 @@
 # DinosaurAPI
 
+
+Ce projet est une API REST développée en Node.js + Express avec une base MongoDB, permettant la gestion d’un parc de dinosaures (modèles : Dinosaur, Keeper, Incident).
+
+**Membre de l'équipe :** 
+CLAIR Manon
+DORBANI Abdelmalek
+MARTIN Evan
+
+Sur le Campus de LYON.
+
+Lien utiles : 
+
+Tâches effectuées et structurées dans un tableau de Kanban : https://github.com/users/Snowlly/projects/6
+Lien de la production : ...
+Lien du Staging : ...
+
 ---
 
-### 🐳 Dockerisation des services
+## Parc Sauvage
+
+### Parc API – Models & Routes Documentation
+
+#### Models
+
+##### Dinosaur
+
+**name**	String  Nom du dinosaure
+**specie**	String  Espèce
+**weight**	Number  Poids en kg
+**height**	Number	Taille en mètres
+**dangerLevel**	Number  Niveau de danger (1 à 10)
+**diet**	String	carnivore, herbivore, omnivore
+
+
+##### Keeper
+
+**name**	String	"Nom du soigneur"
+**age**	Number	Âge
+**dateStart**	Date	"Date de début d’activité"
+**available**	Boolean	Disponible ou non
+**sector**	String	"Zone assignée dans le parc"
+
+
+##### Incident
+
+**title**	String	Titre de l’incident
+**severity**	String (enum)	"low, medium, high, critical"
+**isDone**	String (enum) (default)	yes ou no
+**description**	String	"Description de l’incident"
+**assignedKeepers**	Array of ObjectId	"Références vers les Keeper affectés"
+**dateCreation**	Date (default)	Date de création de l’incident
+
+---
+
+#### Routes API
+
+Toutes les routes sont disponibles sous le préfixe /api.
+
+**/api/dinosaurs**
+Méthode	URL	Description
+GET	/api/dinosaurs	Liste tous les dinos
+GET	/api/dinosaurs/:id	Détail d’un dinosaure
+POST	/api/dinosaurs	Crée un nouveau dinosaure
+PUT	/api/dinosaurs/:id	Modifie un dinosaure
+DELETE	/api/dinosaurs/:id	Supprime un dinosaure
+**/api/keepers**
+Méthode	URL	Description
+GET	/api/keepers	Liste tous les soigneurs
+GET	/api/keepers/:id	Détail d’un soigneur
+POST	/api/keepers	Crée un nouveau soigneur
+PUT	/api/keepers/:id	Modifie un soigneur
+DELETE	/api/keepers/:id	Supprime un soigneur
+**/api/incidents**
+Méthode	URL	Description
+GET	/api/incidents	Liste tous les incidents
+GET	/api/incidents/:id	Détail d’un incident
+POST	/api/incidents	Crée un nouvel incident
+PUT	/api/incidents/:id	Modifie un incident
+DELETE	/api/incidents/:id	Supprime un incident
+
+Les routes GET et PUT d’incidents utilisent .populate('assignedKeepers') pour inclure les informations des soigneurs assignés.
+Exemple fonctioinnel d'un JSON pour POST /api/dinosaurs
+
+{
+  "name": "Tyrannosaurus Rex",
+  "specie": "Tyrannosauridae",
+  "weight": 8000,
+  "height": 4.0,
+  "dangerLevel": 10,
+  "diet": "carnivore"
+}
+
+---
+
+### Dockerisation des services
 
 Chaque microservice (`parc-sauvage` et `parc-touristique`) est conteneurisé via Docker. L'architecture suit cette structure :
 
@@ -21,7 +113,7 @@ DinosaurAPI/
 │       └── Dockerfile
 ```
 
-#### 🛠️ Contenu type d’un `Dockerfile`
+### Contenu type d’un `Dockerfile`
 
 Dans `parcSauvage/ops/Dockerfile` ou `parcTouristique/ops/Dockerfile` :
 
@@ -39,32 +131,62 @@ EXPOSE 3000
 CMD ["npm", "start"]
 ```
 
-> ⚠️ Chaque `Dockerfile` est dans le dossier `ops/` propre à son microservice.
+Attention car chaque `Dockerfile` est dans le dossier `ops/` propre à son microservice.
 
 ---
 
-### 🚀 Lancement avec Docker Compose
+### Lancement avec Docker Compose
 
 À la racine du projet, le fichier `docker-compose.yml` orchestre les deux services :
 
 ```yaml
+version: '3.8'
+
 services:
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+
   parc-sauvage:
     build:
       context: ./parcSauvage
-      dockerfile: ops/Dockerfile
+      dockerfile: ./ops/Dockerfile
     ports:
       - "3001:3000"
+    volumes:
+      - ./parcSauvage:/app
+    working_dir: /app
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/parcSauvage
 
   parc-touristique:
     build:
       context: ./parcTouristique
-      dockerfile: ops/Dockerfile
+      dockerfile: ./ops/Dockerfile
     ports:
       - "3002:3000"
+    volumes:
+      - ./parcTouristique:/app
+    working_dir: /app
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/parcTouristique
+
+volumes:
+  mongodb-data:
+
 ```
 
-#### 🔧 Commandes utiles
+--
+
+#### Les commandes utiles
 
 * Lancer les services :
 
@@ -79,3 +201,5 @@ services:
   ```
 
 ---
+
+
