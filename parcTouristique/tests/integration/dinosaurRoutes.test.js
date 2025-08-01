@@ -60,14 +60,13 @@ describe('Dinosaur API Integration Tests', () => {
         const dinoData = {
             name: 'Stegosaurus',
             specie: 'Stegosaurus Armatus',
-            weight: '5000kg',
-            height: '8m',
+            weight: 5000,
+            height: 8,
             dangerLevel: 5,
             diet: 'herbivore',
             dateBorn: new Date(),
             enclosureId: 'E2',
         };
-
         const res = await request(app)
             .post('/api/dinosaurs')
             .send(dinoData)
@@ -89,8 +88,8 @@ describe('Dinosaur API Integration Tests', () => {
         const dino = await Dinosaur.create({
             name: 'Triceratops',
             specie: 'Triceratops horridus',
-            weight: '6000kg',
-            height: '9m',
+            weight: 6000,
+            height: 9,
             dangerLevel: 7,
             diet: 'herbivore',
             dateBorn: new Date(),
@@ -109,8 +108,8 @@ describe('Dinosaur API Integration Tests', () => {
         const dino = await Dinosaur.create({
             name: 'Velociraptor',
             specie: 'Velociraptor mongoliensis',
-            weight: '300kg',
-            height: '2m',
+            weight: 300,
+            height: 2,
             dangerLevel: 9,
             diet: 'carnivore',
             dateBorn: new Date(),
