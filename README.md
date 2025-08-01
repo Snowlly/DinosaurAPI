@@ -254,7 +254,8 @@ Et faire de même pour le parcTouristique.
 Même principe que précédemment, il faut se positionner sur un des parcs, puis faire :
 
 ```bash
-npm test
+npm run parcSauvage
+npm run parcTouristique
 ```
 Et faire de même pour l'autre Parc.
 
