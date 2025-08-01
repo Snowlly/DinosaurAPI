@@ -8,7 +8,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "npx jest --passWithNoTests"
+    "testSauvage": "npx jest --passWithNoTests"
   },
   "dependencies": {
     "express": "^5.1.0",
