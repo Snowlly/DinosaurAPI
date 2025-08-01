@@ -24,7 +24,7 @@ app.use(errorHandler);
 
 const port = process.env.PORT || 3000;
 
-
+console.log("Testing the workflow")
 app.listen(port, () => {
   console.log(` ParcTouristique API listening on port ${port}`);
 });
