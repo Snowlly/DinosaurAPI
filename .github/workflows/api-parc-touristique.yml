@@ -2,13 +2,8 @@ name: CI - Parc Touristique
 
 on:
   push:
-    paths:
-      - 'parcTouristique/**'
-      - '.github/workflows/api-parc-touristique.yml'
     branches: ["main", "Workflow"]
   pull_request:
-    paths:
-      - 'parcTouristique/**'
     branches: ["main", "Workflow"]
 
 jobs:
@@ -17,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build Docker image for Parc Touristique
         run: |
