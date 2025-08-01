@@ -16,6 +16,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker image for Parc Sauvage
-#        working-directory: parcSauvage
-        run: docker compose up --build -d
+      - name: Build and run parc-sauvage service (with mongo)
+        run: docker compose up --build -d parc-sauvage mongo
