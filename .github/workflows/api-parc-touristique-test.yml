@@ -2,12 +2,8 @@ name: CI - Test Parc Touristique
 
 on:
   push:
-    paths:
-      - 'parcTouristique/**'
     branches: [ "main", "Workflow" ]
   pull_request:
-    paths:
-      - 'parcTouristique/**'
     branches: [ "main", "Workflow" ]
 
 jobs:

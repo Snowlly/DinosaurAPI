@@ -2,12 +2,8 @@ name: CI - Test Parc Sauvage
 
 on:
   push:
-    paths:
-      - 'parcSauvage/**'
     branches: [ "main", "Workflow" ]
   pull_request:
-    paths:
-      - 'parcSauvage/**'
     branches: [ "main", "Workflow" ]
 
 jobs:

@@ -2,9 +2,6 @@ name: CI - Docker Parc Sauvage
 
 on:
   push:
-    paths:
-      - 'parcSauvage/**'
-      - '.github/workflows/api-parc-sauvage.yml'
     branches: ["main", "Workflow"]
   pull_request:
     paths:
