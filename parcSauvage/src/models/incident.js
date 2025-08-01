@@ -12,9 +12,9 @@ const incidentSchema = new mongoose.Schema({
         required: true
     },
     isDone: {
-        type: String,
-        enum: ['yes', 'no'],
-        default: 'no'
+        type: Boolean,
+        default: false,
+        required: true
     },
     description: {
         type: String,
