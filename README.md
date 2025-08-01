@@ -5,6 +5,7 @@ Ce projet est une API REST développée en Node.js + Express avec une base Mongo
 
 [![Node.js CI](https://github.com/Snowlly/DinosaurAPI/actions/workflows/api-parc-sauvage.yml/badge.svg)] 
 [![Node.js CI](https://github.com/Snowlly/DinosaurAPI/actions/workflows/api-parc-touristique.yml/badge.svg)]
+[![Node.js CI](https://github.com/Snowlly/DinosaurAPI/actions/workflows/api-parc-touristique-test.yml/badge.svg)]
 
 **Membre de l'équipe :** 
 
